@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // Define the primary color for the app
         primaryColor: Colors.blue,
@@ -16,8 +17,8 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           bodyMedium: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.green),
-          headline5: TextStyle(
-              fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.green),
+          titleMedium: TextStyle(
+              fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.red),
         ),
 
         // Define other properties like button styles, etc.
@@ -32,15 +33,15 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My App'),
+        // Isso obtém o tema atual do aplicativo a partir do contexto. O context é uma referência ao ambiente de construção de widgets e é usado para acessar informações sobre o aplicativo, como o tema.
+        title: Text('My App', style: Theme.of(context).textTheme.titleMedium),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Hello, World!',
-            ),
+            Text('Hello, World!',
+                style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
       ),
