@@ -10,18 +10,35 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // Define the primary color for the app
-        primaryColor: Colors.blue,
+        useMaterial3: true,
+        // Informamos uma cor para o flutter e ele define uma paleta de cor baseada nesta cor definida. Paasando uma semente de uma cor
+        /* colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.yellow,
+        ),*/
 
-        // Define the text theme with custom font and styles
-        textTheme: TextTheme(
-          bodyMedium: TextStyle(
-              fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.green),
-          titleMedium: TextStyle(
-              fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.red),
+        //OU
+
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.blue,
+        ),
+        scaffoldBackgroundColor: Colors.grey[600],
+        appBarTheme: AppBarTheme(
+          color: Colors.blue, // Define a cor de fundo do AppBar
+          titleTextStyle: TextStyle(
+            fontSize: 25.0, // Define o tamanho do texto do título do AppBar
+            color: Colors.white, // Define a cor do texto do título do AppBar
+          ),
         ),
 
-        // Define other properties like button styles, etc.
+        // Defina o tema do texto com fontes e estilos personalizados
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(
+              fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.pink),
+          titleMedium: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.orange),
+        ),
       ),
       home: MyHomePage(),
     );
@@ -33,16 +50,16 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Isso obtém o tema atual do aplicativo a partir do contexto. O context é uma referência ao ambiente de construção de widgets e é usado para acessar informações sobre o aplicativo, como o tema.
-        title: Text('My App', style: Theme.of(context).textTheme.titleMedium),
+        title: Text('My App'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Hello, World!',
-                style: Theme.of(context).textTheme.bodyMedium),
-          ],
+        child: Container(
+          alignment: Alignment.center,
+          width: 200,
+          height: 200,
+          color: Colors.blue,
+          child: Text('Hello, World!',
+              style: Theme.of(context).textTheme.bodyMedium),
         ),
       ),
       floatingActionButton: FloatingActionButton(
